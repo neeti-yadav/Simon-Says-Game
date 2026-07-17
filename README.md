@@ -1,16 +1,21 @@
 # Simon Says Game
 
-This is a simple Simon Says game built using HTML, CSS, and JavaScript.
+This is a simple Simon Says Game built using HTML, CSS, and JavaScript.
 
 The game tests your memory by showing a sequence of colored buttons. Your task is to remember the sequence and click the buttons in the same order. The sequence becomes longer after every level, making the game more challenging.
 
+## Live Demo
+
+https://neeti-yadav.github.io/Simon-Says-Game/
+
 ## Features
 
-* Random color sequence generation
+* Start and Restart game buttons
 * Level-based gameplay
-* Game over detection
-* Restart the game by pressing any key
-* Simple and responsive user interface
+* Highest score tracking
+* Button flash animations
+* Game over effect
+* Responsive design
 
 ## Technologies Used
 
@@ -20,12 +25,12 @@ The game tests your memory by showing a sequence of colored buttons. Your task i
 
 ## How to Play
 
-1. Press any key on your keyboard to start the game.
+1. Click the **Start Game** button.
 2. Watch the highlighted button carefully.
-3. Use your mouse or touchpad to click the colored buttons in the same order.
+3. Click the colored buttons in the same order.
 4. Complete the sequence to move to the next level.
-5. If you click the wrong button, the game is over.
-6. Press any key to start a new game.
+5. The game ends if you click the wrong button.
+6. Click **Restart Game** to play again.
 
 ## Project Structure
 
@@ -38,10 +43,15 @@ Simon-Says-Game/
 └── README.md
 ```
 
-## Screenshot
+## Preview
 
 ![Simon Says Game](gamess.png)
 
 ## Author
 
 **Neeti Yadav**
+
+## Support
+
+If you like this project, please give it a ⭐ on GitHub.
+
