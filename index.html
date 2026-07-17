@@ -4,30 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simon Says Game</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>SIMON SAYS GAME</h1>
-    <h2>Press any key to start the game</h2>
-    <div class="btn-container">
-        <div class="line-one">
-            <div class="btn red" type="button" id="red"></div>
-            <div class="btn yellow" type="button" id="yellow"></div>
+
+    <div class="container">
+
+        <h1>SIMON SAYS GAME</h1>
+
+        <h2>Click Start Game to begin</h2>
+
+        <button id="startBtn">Start Game</button>
+        <button id="restartBtn" style="display:none;">Restart Game</button>
+
+        <div class="btn-container">
+
+            <div class="line-one">
+                <div class="btn red" id="red"></div>
+                <div class="btn yellow" id="yellow"></div>
+            </div>
+
+            <div class="line-two">
+                <div class="btn green" id="green"></div>
+                <div class="btn purple" id="purple"></div>
+            </div>
+
         </div>
 
-        <div class="line-two">
-            <div class="btn green" type="button" id="green"></div>
-            <div class="btn purple" type="button" id="purple"></div>
-        </div>
     </div>
 
     <footer class="credit">
         <hr>
-    <p>© 2026 All Rights Reserved</p>
-    <p>Designed & Developed by <strong>Neeti Yadav</strong></p>
+        <p>© 2026 All Rights Reserved</p>
+        <p>Designed & Developed by <strong>Neeti Yadav</strong></p>
     </footer>
-    
-    <script src="./app.js"></script>
+
+    <script src="app.js"></script>
+
 </body>
 </html>

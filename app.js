@@ -5,17 +5,31 @@ let btns = ["yellow", "red", "purple", "green"];
 
 let started = false;
 let level = 0;
+let highestScore = 0;
 
 let h2 = document.querySelector("h2");
 
-document.addEventListener("keypress", function () {
-    if(started == false){
+let startBtn = document.querySelector("#startBtn");
+let restartBtn = document.querySelector("#restartBtn");
+
+startBtn.addEventListener("click", startGame);
+
+restartBtn.addEventListener("click", function () {
+    reset();
+    startGame();
+});
+
+function startGame() {
+    if (started == false) {
         console.log("game is started");
         started = true;
 
+        startBtn.style.display = "none";
+        restartBtn.style.display = "inline-block";
+
         levelUp();
     }
-});
+}
 
 function gameFlash(btn){
     btn.classList.add("flash");
@@ -39,50 +53,56 @@ function levelUp(){
     let randomIdx = Math.floor(Math.random() * btns.length);
     let randomColor = btns[randomIdx];
     let randomBtn = document.querySelector(`.${randomColor}`);
-    // console.log(randomIdx);
-    // console.log(randomColor);
-    // console.log(randomBtn);
 
     gameSeq.push(randomColor);
-   
-
 
     gameFlash(randomBtn);
-
 }
 
 function checkAns(idx){
-    // console.log("current level :", level);
-    
 
     if(userSeq[idx] === gameSeq[idx]){
         if(userSeq.length == gameSeq.length){
             setTimeout(levelUp, 1000);
         }
     }else{
-       h2.innerHTML =  `Game Over! Your score was <b>${level}</b> <br> Press any key to start.`;
-       document.querySelector("body").style.backgroundColor = "red";
-       setTimeout(function(){
-        document.querySelector("body").style.backgroundColor = "white";
-       },250);
-       reset();
+
+        let score = level;
+
+        if(score > highestScore){
+            highestScore = score;
+        }
+
+        h2.innerHTML = `Game Over! Your score was <b>${score}</b><br>Highest Score : <b>${highestScore}</b><br>Click Restart Game to play again.`;
+
+        document.body.classList.add("game-over");
+
+        setTimeout(function(){
+        document.body.classList.remove("game-over");
+         },400);
+
+        reset();
+
+        restartBtn.style.display = "inline-block";
     }
 }
 
-
 function btnPress() {
-    
+
+    if(!started) return;
+
     let btn = this;
     userFlash(btn);
 
-    userColor = btn.getAttribute("id");
+    let userColor = btn.getAttribute("id");
     userSeq.push(userColor);
 
     checkAns(userSeq.length-1);
 }
 
 let allBtns = document.querySelectorAll(".btn");
-for(btn of allBtns){
+
+for(let btn of allBtns){
     btn.addEventListener("click", btnPress);
 }
 
